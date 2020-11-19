@@ -22,6 +22,7 @@
 
     <div *ngIf="planetPagingMetadata$ | async as paging">
       <mat-paginator
+        class="planet-list-paging"
         [length]="paging?.count"
         [pageSize]="10"
         [hidePageSize]="true"

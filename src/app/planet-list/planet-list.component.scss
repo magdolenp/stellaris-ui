@@ -45,3 +45,7 @@
     stroke: #000000;
   }
 }
+
+::ng-deep .planet-list-paging {
+  background-color: transparent;
+}
