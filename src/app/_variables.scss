@@ -1,0 +1,29 @@
+/* ----- SIZING ----- */
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 12px;
+$spacing-l: 16px;
+$spacing-xl: 24px;
+$spacing-xxl: 36px;
+
+/* ----- FONTS ----- */
+$font-size-xs: 10px;
+$font-size-s: 12px;
+$font-size-m: 14px;
+
+/* ----- COLORS ----- */
+$background-color: #eaebef;
+$font-color: #000000;
+$preview-color: #ffffff;
+$highlight-color: #ffFF00;
+
+/* ----- SHADOWS ----- */
+$shadow-m: 0 4px 6px 0 rgba(#000000, 0.3);
+$shadow-l: 0 6px 6px 0 rgba(#000000, 0.4);
+
+/* ----- BREAKPOINTS ----- */
+@mixin mobile-screen {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}

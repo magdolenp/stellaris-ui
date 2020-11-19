@@ -1,0 +1,23 @@
+<div class="planet-preview-container" (click)="selectPlanet()">
+  <div class="title">{{ planet?.name | uppercase }}</div>
+
+  <div class="line"></div>
+
+  <div class="description-container">
+    <div class="description-item">
+      <label>Population:</label>
+      <div class="item">
+        {{
+          planet?.population === 'unknown'
+            ? planet?.population
+            : (planet?.population | number)
+        }}
+      </div>
+    </div>
+
+    <div class="description-item">
+      <label>Terrain:</label>
+      <div class="item">{{ planet?.terrain }}</div>
+    </div>
+  </div>
+</div>

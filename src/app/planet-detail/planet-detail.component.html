@@ -1,0 +1,67 @@
+<ng-container *ngIf="planetLoading$ | async; else planetLoaded">
+  <div class="loading-spinner">
+    <mat-spinner [diameter]="100"></mat-spinner>
+  </div>
+</ng-container>
+
+<ng-template #planetLoaded>
+  <div *ngIf="planetDetail$ | async as planet" class="planet-detail-container">
+    <div class="planet-detail-header">
+      <mat-icon matListIcon class="back-icon" (click)="routeBack()">
+        arrow_back
+      </mat-icon>
+
+      <div class="title">{{ planet.name }}</div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="planet-stats">
+      <div class="item-container">
+        <label>Climate</label>
+        <div class="item">{{ planet.climate }}</div>
+      </div>
+
+      <div class="item-container">
+        <label>Gravity</label>
+        <div class="item">{{ planet.gravity }}</div>
+      </div>
+
+      <div class="item-container">
+        <label>Terrain</label>
+        <div class="item">{{ planet.terrain }}</div>
+      </div>
+
+      <div class="item-container">
+        <label>Population</label>
+        <div class="item">
+          {{
+            planet?.population === 'unknown'
+              ? planet?.population
+              : (planet?.population | number) + ' inhabitants'
+          }}
+        </div>
+      </div>
+
+      <div class="item-container">
+        <label>Rotation period</label>
+        <div class="item">{{ planet.rotation_period }} standard hours</div>
+      </div>
+
+      <div class="item-container">
+        <label>Orbital period</label>
+        <div class="item">{{ planet.orbital_period }} standard days</div>
+      </div>
+
+      <div class="item-container">
+        <label>Diameter</label>
+        <div class="item">{{ planet.diameter }} kilometers</div>
+      </div>
+
+      <div class="item-container">
+        <label>Surface water</label>
+        <div class="item">{{ planet.surface_water }}</div>
+      </div>
+    </div>
+  </div>
+</ng-template>

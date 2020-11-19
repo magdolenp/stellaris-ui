@@ -1,0 +1,70 @@
+@import '../../variables';
+
+@keyframes popupPreview {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.planet-preview-container {
+  width: 46vw;
+  min-width: 140px;
+  max-width: 240px;
+  height: 180px;
+  background: $preview-color;
+  margin: $spacing-s;
+  padding: $spacing-m;
+  box-shadow: $shadow-m;
+  opacity: 0.95;
+  border: 2px solid transparent;
+  cursor: pointer;
+  animation: 0.3s ease-out 0s 1 popupPreview;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.3s;
+    border-right: 2px solid $highlight-color;
+    border-top: 2px solid $highlight-color;
+    box-shadow: $shadow-l;
+  }
+
+  @include mobile-screen {
+    margin: $spacing-xs;
+    padding: $spacing-xs;
+  }
+}
+
+.title {
+  margin-bottom: $spacing-s;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(#000000, 0.3);
+  margin-bottom: $spacing-s;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+
+  .description-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-s;
+    line-height: 1.2;
+
+    .item {
+      margin-left: $spacing-m;
+    }
+
+    & > * {
+      font-size: $font-size-m;
+      cursor: pointer;
+    }
+  }
+}

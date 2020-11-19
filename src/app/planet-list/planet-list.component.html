@@ -1,0 +1,33 @@
+<div class="planets-container">
+  <form [formGroup]="searchForm" class="search-container">
+    <input type="text" formControlName="search" class="search-input" />
+    <mat-icon matListIcon class="search-icon">search</mat-icon>
+  </form>
+
+  <ng-container *ngIf="planetLoading$ | async; else planetListLoaded">
+    <div class="loading-spinner">
+      <mat-spinner [diameter]="100"></mat-spinner>
+    </div>
+  </ng-container>
+
+  <ng-template #planetListLoaded>
+    <div *ngIf="planetList$ | async as planets" class="planet-list-container">
+      <su-planet-preview
+        class="test"
+        *ngFor="let planet of planets"
+        [planet]="planet"
+        (planetSelected)="planetSelected($event)"
+      ></su-planet-preview>
+    </div>
+
+    <div *ngIf="planetPagingMetadata$ | async as paging">
+      <mat-paginator
+        [length]="paging?.count"
+        [pageSize]="10"
+        [hidePageSize]="true"
+        [pageIndex]="(planetPage$ | async) - 1"
+        (page)="setPage($event)"
+      ></mat-paginator>
+    </div>
+  </ng-template>
+</div>
